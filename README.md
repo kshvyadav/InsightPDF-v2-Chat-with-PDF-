@@ -128,17 +128,17 @@ http://127.0.0.1:8000
 
 ### 3. Docker Setup (Recommended / Quick Run)
 
-If you prefer running the application in an isolated container without setting up a local Python virtual environment:
+Agar aapko Python environment manually setup nahi karna hai, toh Docker se directly ek container me run kar sakte hain:
 
-#### Step 1: Build the Docker Image
-Run the following build command in the root project directory:
+#### Step 1: Docker Image Build karein
+Terminal me project root directory me yeh command run karein:
 ```bash
 docker build -t insight-pdf .
 ```
-> *This packages the application source code and all required dependencies into a lightweight, standalone Docker image.*
+> *Yeh command application code aur saari dependencies ko ek isolated Docker image me package kar deti hai.*
 
-#### Step 2: Run the Docker Container
-Start the container using the appropriate command for your OS:
+#### Step 2: Container Run karein
+Image build hone ke baad container start karein:
 
 - **Windows / macOS:**
   ```bash
@@ -150,26 +150,26 @@ Start the container using the appropriate command for your OS:
   docker run -d -p 8000:8000 --add-host=host.docker.internal:host-gateway -e OLLAMA_BASE_URL="http://host.docker.internal:11434" --name insight-pdf-app insight-pdf
   ```
 
-> **💡 Note on Ollama Connectivity:** Setting `OLLAMA_BASE_URL="http://host.docker.internal:11434"` allows the Docker container to communicate seamlessly with the local Ollama instance running on your host machine.
+> **💡 Ollama Connection Note:** `OLLAMA_BASE_URL="http://host.docker.internal:11434"` ensure karta hai ki Docker container aapke host system pe chal rahe local Ollama instance se seamlessly connect kar sake.
 
-#### Step 3: Access the Web UI
-Open your browser and navigate to:
+#### Step 3: Web UI Access karein
+Browser open karke navigate karein:
 ```
 http://localhost:8000
 ```
 
-#### 🛠️ Useful Docker Commands:
+#### 🛠️ Useful Docker Management Commands:
 ```bash
-# Stream real-time container logs:
+# Real-time logs check karne ke liye:
 docker logs -f insight-pdf-app
 
-# Stop the running container:
+# Container stop karne ke liye:
 docker stop insight-pdf-app
 
-# Restart the stopped container:
+# Container wapas start karne ke liye:
 docker start insight-pdf-app
 
-# Remove the container:
+# Container remove karne ke liye:
 docker rm -f insight-pdf-app
 ```
 
