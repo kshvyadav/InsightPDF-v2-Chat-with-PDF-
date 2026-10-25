@@ -4,12 +4,14 @@ WORKDIR /app
 
 ENV PYTHONUNBUFFERED=1
 
-# 1. Pehle lightweight CPU-only torch install karein
 RUN pip install --no-cache-dir torch --index-url https://download.pytorch.org/whl/cpu
 
-# 2. Ab requirements.txt install karein (ab yeh heavy CUDA torch dobara download nahi karega)
 COPY requirements.txt .
 RUN pip install --no-cache-dir -r requirements.txt
+
+RUN python -c "from sentence_transformers import SentenceTransformer, CrossEncoder; \
+    SentenceTransformer('all-MiniLM-L6-v2'); \
+    CrossEncoder('BAAI/bge-reranker-base')"
 
 COPY . .
 

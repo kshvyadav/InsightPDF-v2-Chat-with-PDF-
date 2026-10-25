@@ -29,5 +29,5 @@ jobs:
           file: ./Dockerfile
           push: true
           tags: |
-            ${{ secrets.DOCKERHUB_USERNAME }}/docurag-app:latest
-            ${{ secrets.DOCKERHUB_USERNAME }}/docurag-app:${{ github.sha }}
+            ${{ secrets.DOCKERHUB_USERNAME }}/insight-pdf:latest
+            ${{ secrets.DOCKERHUB_USERNAME }}/insight-pdf:${{ github.sha }}
