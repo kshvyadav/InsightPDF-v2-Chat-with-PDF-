@@ -1,0 +1,88 @@
+# ==============================================================================
+# Git Ignore Rules for InsightPDF (FastAPI + LangGraph + RAG)
+# ==============================================================================
+
+# 1. Environment & Secrets
+.env
+!.env.example
+
+# 2. Python Bytecode & Cache
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+
+# 3. Virtual Environments
+venv/
+.venv/
+env/
+ENV/
+env.bak/
+venv.bak/
+
+# 4. Data & PDF Storage
+# Preserve the data directory via .gitkeep, but ignore uploaded/test PDFs
+data/*
+!data/.gitkeep
+
+# 5. Vector Store & Database Persistence
+chroma_db/
+.chroma/
+*.chroma
+*.sqlite3
+
+# 6. Model Weights & Caches
+.cache/
+hf_cache/
+models/
+huggingface/
+
+# 7. Testing & Evaluation Frameworks
+.deepeval/
+.pytest_cache/
+.coverage
+htmlcov/
+
+# 8. Jupyter Notebook Checkpoints
+.ipynb_checkpoints/
+*/.ipynb_checkpoints/*
+*-checkpoint.ipynb
+
+# 9. IDE & Editor Files
+.vscode/
+.idea/
+*.sublime-workspace
+*.sublime-project
+*.swp
+*.swo
+*~
+
+# 10. Operating System Files
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+desktop.ini
+
+# 11. Logs
+*.log
+logs/
